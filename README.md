@@ -1,27 +1,74 @@
-# LeaveSystem
+# ระบบลางาน (Leave System)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+ระบบลางานนี้ถูกพัฒนาด้วย **Angular 18** สำหรับส่วน Frontend และ **Spring Boot 3.3** สำหรับ Backend โดยมีการเชื่อมต่อกับฐานข้อมูล **PostgreSQL** เพื่อจัดการข้อมูลต่างๆ ของการลาของพนักงาน
 
-## Development server
+## เทคโนโลยีที่ใช้
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Frontend:
+- **Angular 18**
+- **Angular Material**
+- **NgRx** สำหรับการจัดการสถานะ
+- **RxJS** สำหรับการจัดการข้อมูลแบบ reactive
 
-## Code scaffolding
+### Backend:
+- **Spring Boot 3.3**
+- **Spring Security** สำหรับการรักษาความปลอดภัย
+- **Spring Data JPA** สำหรับการจัดการฐานข้อมูล
+- **Java 17**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Database:
+- **PostgreSQL**
 
-## Build
+## ฟีเจอร์หลัก
+- **หน้าแดชบอร์ด (Dashboard)**: แสดงสถิติสำคัญ เช่น จำนวนวันลาคงเหลือ, คำขอลาที่รออนุมัติ, จำนวนวันลาที่ใช้ไปในปีนี้ และปฏิทินแสดงวันลา
+- **หน้าขอลางาน (Leave Request Form)**: ใช้สำหรับพนักงานในการขอลางาน เลือกประเภทการลา, ระบุวันที่ และเหตุผล
+- **หน้าประวัติการลา (Leave History)**: ตารางแสดงประวัติการลาทั้งหมด สามารถฟิลเตอร์ตามประเภทการลาและสถานะ
+- **หน้าอนุมัติการลา (สำหรับผู้จัดการ)**: แสดงคำขอลาที่รอการอนุมัติ พร้อมปุ่มอนุมัติ/ไม่อนุมัติ และช่องให้ความเห็น
+- **Export รายงาน**: รองรับการ Export ข้อมูลการลาทั้งหมดเป็นไฟล์ Excel
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## การตั้งค่าโปรเจกต์
 
-## Running unit tests
+### การตั้งค่า Backend (Spring Boot)
+1. สร้างโปรเจกต์ Spring Boot โดยใช้ [Spring Initializer](https://start.spring.io/)
+2. เลือก **Java 17** และ **Spring Boot 3.3**
+3. ติดตั้ง dependencies เช่น **Spring Web**, **Spring Data JPA**, **Spring Security**
+4. ตั้งค่าการเชื่อมต่อกับ PostgreSQL โดยใช้ไฟล์ `application.properties`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/leave_system
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+การตั้งค่า Frontend (Angular)
+สร้างโปรเจกต์ Angular โดยใช้คำสั่ง:
+bash
+คัดลอก
+ng new leave-system
+ติดตั้ง dependencies:
+bash
+คัดลอก
+npm install @angular/material @ngrx/store rxjs
+การเชื่อมต่อ Frontend และ Backend
+ใช้ HTTP Client ใน Angular เพื่อเชื่อมต่อกับ API ของ Spring Boot เช่น การส่งคำขอลา, ดูประวัติการลา, และการอนุมัติคำขอ
+ตั้งค่า CORS ใน Spring Boot เพื่ออนุญาตให้ Frontend เชื่อมต่อได้
+การทดสอบ
+ทดสอบการเชื่อมต่อระหว่าง Frontend และ Backend
+ทดสอบการทำงานของฟีเจอร์หลัก เช่น การส่งคำขอลา, การดูประวัติการลา, และการอนุมัติคำขอ
+ทดสอบการ Export รายงานเป็น Excel
+การพัฒนาเพิ่มเติม
+สามารถเพิ่มฟีเจอร์เพิ่มเติม เช่น การส่งการแจ้งเตือนเมื่อมีคำขอลาใหม่, การติดตามจำนวนวันลาในปีถัดไป หรือการเพิ่มฟีเจอร์การสร้างรายงานที่มีข้อมูลเพิ่มเติม
+การใช้งาน
+การขอลางาน
+เข้าสู่หน้า ขอลางาน และเลือกประเภทการลา
+ระบุวันที่เริ่มต้นและสิ้นสุด
+กรอกเหตุผลและคลิกปุ่ม "ส่งคำขอลา"
+การอนุมัติการลา
+ผู้จัดการสามารถดูรายการคำขอลาที่รออนุมัติจากหน้า อนุมัติการลา
+คลิกปุ่ม อนุมัติ หรือ ไม่อนุมัติ พร้อมให้ความเห็น
+สรุป
+ระบบลางานนี้ถูกออกแบบเพื่อการจัดการคำขอลาและการอนุมัติการลาอย่างมีประสิทธิภาพ โดยใช้เทคโนโลยีที่ทันสมัยและรองรับการใช้งานที่หลากหลายทั้งในส่วนของผู้ใช้ทั่วไปและผู้จัดการ
 
-## Running end-to-end tests
+bash
+คัดลอก
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+โปรดใช้ **README.md** นี้เพื่ออธิบายการตั้งค่าโปรเจกต์และการพัฒนาเพิ่มเติมต่างๆ หากมีการเปลี่ยนแปลงหรือต้องการรายละเอียดเพิ่มเติมเกี่ยวกับฟีเจอร์ใดๆ ก็สามารถเพิ่มได้ตามต้องการ&#8203;:contentReference[oaicite:0]{index=0}.
