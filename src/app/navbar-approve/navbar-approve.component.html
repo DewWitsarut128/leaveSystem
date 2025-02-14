@@ -1,0 +1,14 @@
+<nav class="navbar-approve">
+    <div class="navbar-content">
+      <span>{{ title }}</span>
+      <ul class="navbar-links">
+        <li *ngFor="let link of approveLinks">
+          <a [routerLink]="link.route">{{ link.name }}</a>
+        </li>
+      </ul>
+      <div class="user-icon">
+        <img src="assets/icons/user-icon.png" alt="User Icon" />
+      </div>
+    </div>
+  </nav>
+  

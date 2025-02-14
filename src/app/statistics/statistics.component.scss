@@ -1,0 +1,81 @@
+/* ฟิลเตอร์เดือนและแผนก */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  mat-form-field {
+    margin: 0 10px;
+    width: 200px;
+  }
+  
+  mat-select {
+    font-size: 14px;
+  }
+  
+  /* ปรับขนาดและฟอนต์ของป้ายชื่อ */
+  mat-label {
+    font-size: 14px;
+    color: #333;
+  }
+/* ปรับแต่งกราฟ */
+.apexcharts-canvas {
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .apexcharts-legend {
+    font-size: 12px;
+    padding: 10px;
+  }
+  
+  .apexcharts-tooltip {
+    background-color: #333 !important;
+    color: white !important;
+    border-radius: 5px;
+  }
+/* ตกแต่งตาราง */
+.table-container {
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #e1f5fe;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

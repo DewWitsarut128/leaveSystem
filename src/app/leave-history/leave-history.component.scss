@@ -1,0 +1,77 @@
+/* leave-history.component.scss */
+.leave-history {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter {
+  width: 45%;
+}
+
+label {
+  font-size: 16px;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+button {
+  background-color: white;
+  color: #3f51b5;
+  border: 1px solid #3f51b5;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #f4f4f4;
+}
+
+button:disabled {
+  background-color: #f5f5f5;
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+
+.approved {
+  color: #4caf50;
+}
+
+.pending {
+  color: #ff9800;
+}

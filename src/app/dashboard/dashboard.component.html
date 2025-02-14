@@ -1,0 +1,42 @@
+
+<div class="dashboard-container">
+  <h2>แดชบอร์ด</h2>
+  <div class="summary">
+    <div class="card">
+      <h3><mat-icon>calendar_today</mat-icon> จำนวนวันที่เหลือ</h3>  
+      <p>{{ leaveDaysRemaining }} วัน</p>
+    </div>
+    <div class="card">
+      <h3><mat-icon>access_time</mat-icon> รายการการลาที่รออนุมัติ</h3>
+      <p>{{ leaveRequestsCount }} รายการ</p>
+    </div>
+    <div class="card">
+      <h3><mat-icon>description</mat-icon> ลาทั้งหมดในปีนี้</h3>
+      <p>{{ totalLeaveDays }} วัน</p>
+    </div>
+  </div>
+
+  <div class="latest-leave">
+    <h3>รายการการลาล่าสุด</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>วันที่</th>
+          <th>ประเภท</th>
+          <th>จำนวนวัน</th>
+          <th>สถานะ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of latestLeaveRequests">
+          <td>{{ leave.date }}</td>
+          <td>{{ leave.type }}</td>
+          <td>{{ leave.days }}</td>
+          <td [ngClass]="{ 'approved': leave.status === 'อนุมัติแล้ว', 'pending': leave.status === 'รออนุมัติ' }">
+            {{ leave.status }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

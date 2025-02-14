@@ -1,0 +1,50 @@
+<!-- leave-history.component.html -->
+<div class="leave-history">
+  <h2>ประวัติการลา</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+    <div class="filter">
+      <label for="leaveType">เลือกประเภทการลา</label>
+      <select id="leaveType" [(ngModel)]="selectedType" (change)="filterLeaveHistory()">
+        <option value="">ทั้งหมด</option>
+        <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <div class="filter">
+      <label for="status">เลือกสถานะ</label>
+      <select id="status" [(ngModel)]="selectedStatus" (change)="filterLeaveHistory()">
+        <option value="">ทั้งหมด</option>
+        <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>วันที่</th>
+        <th>ประเภทการลา</th>
+        <th>จำนวนวัน</th>
+        <th>สถานะ</th>
+        <th>รายละเอียด</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of filteredHistory">
+        <td>{{ leave.date }}</td>
+        <td>{{ leave.type }}</td>
+        <td>{{ leave.days }} วัน</td>
+        <td [ngClass]="{
+            'approved': leave.status === 'อนุมัติแล้ว',
+            'pending': leave.status === 'รออนุมัติ'
+          }">
+          {{ leave.status }}
+        </td>
+        <td><button (click)="viewLeaveDetails(leave.id)">ดูรายละเอียด</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,50 @@
+<div class="statistics-container">
+  <h2>สถิติการลา</h2>
+
+  <!-- ฟิลเตอร์เดือน -->
+<label for="month">เดือน:</label>
+<select id="month" [(ngModel)]="selectedMonth">
+  <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+</select>
+
+<label for="department">แผนก:</label>
+<select id="department" [(ngModel)]="selectedDepartment">
+  <option value="IT">IT</option>
+  <option value="HR">HR</option>
+</select>
+
+  <apx-chart [series]="chartOptions.series"
+             [chart]="chartOptions.chart"
+             [title]="chartOptions.title"
+             [xaxis]="chartOptions.xaxis"
+             [yaxis]="chartOptions.yaxis"
+             [legend]="chartOptions.legend"
+             [tooltip]="chartOptions.tooltip">
+  </apx-chart>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ชื่อ-นามสกุล</th>
+        <th>แผนก</th>
+        <th>ลาป่วย</th>
+        <th>ลาพักร้อน</th>
+        <th>ลากิจ</th>
+        <th>รวม</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of peopleData">
+        <td>{{ person.name }}</td>
+        <td>{{ person.department }}</td>
+        <td>{{ person.sickLeave }}</td>
+        <td>{{ person.annualLeave }}</td>
+        <td>{{ person.specialLeave }}</td>
+        <td>{{ person.totalLeave }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
