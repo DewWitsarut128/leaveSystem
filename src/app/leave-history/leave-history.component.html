@@ -1,4 +1,3 @@
-<!-- leave-history.component.html -->
 <div class="leave-history">
   <h2>ประวัติการลา</h2>
 
@@ -34,7 +33,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let leave of filteredHistory">
-        <td>{{ leave.date }}</td>
+        <td>{{ leave.startDate | toBuddhistYear }}</td>
         <td>{{ leave.type }}</td>
         <td>{{ leave.days }} วัน</td>
         <td [ngClass]="{

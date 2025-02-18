@@ -1,12 +1,12 @@
 <div class="approve-leave-container">
   <h2>รายการขออนุมัติการลา</h2>
 
-  <div *ngFor="let leaveRequest of leaveRequests" class="leave-details">
+  <div *ngFor="let leaveRequest of pendingLeaveRequests" class="leave-details">
     <h3>{{ leaveRequest.employeeName }}</h3>
     <p><strong>ประเภทการลา:</strong> {{ leaveRequest.leaveType }}</p>
     <p><strong>จำนวนวัน:</strong> {{ leaveRequest.days }} วัน</p>
-    <p><strong>วันที่เริ่มต้น:</strong> {{ leaveRequest.startDate }}</p>
-    <p><strong>วันที่สิ้นสุด:</strong> {{ leaveRequest.endDate }}</p>
+    <p><strong>วันที่เริ่มต้น:</strong> {{ leaveRequest.startDate | toBuddhistYear }}</p>
+    <p><strong>วันที่สิ้นสุด:</strong> {{ leaveRequest.endDate | toBuddhistYear }}</p>
     <p><strong>เหตุผลการลา:</strong> {{ leaveRequest.reason }}</p>
     
     <textarea placeholder="เพิ่มความคิดเห็น (ถ้ามี)" rows="4" cols="50"></textarea>

@@ -17,20 +17,20 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ApproveLeaveRequestComponent } from './approve-leave-request/approve-leave-request.component';
 import { LeaveRequestComponent } from './leave-request/leave-request.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { LeaveRequestService } from './leave-request.service';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 const routes: Routes = [
-  { path: 'approve-leave-request', component: ApproveLeaveRequestComponent },
   { path: 'leave-statistics', component: StatisticsComponent },
 ];
 
 @NgModule({
   declarations: [
-    ApproveLeaveRequestComponent,
     StatisticsComponent
   ],
   imports: [
@@ -49,7 +49,10 @@ const routes: Routes = [
     MatMenuModule,
     CommonModule,
     NgApexchartsModule,
-    FormsModule
+    FormsModule,
+    ApproveLeaveRequestComponent,
+    MatDialogModule,
+    ConfirmDialogComponent
   ],
   providers: [LeaveRequestService],
   bootstrap: [AppComponent]

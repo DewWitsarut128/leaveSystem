@@ -11,6 +11,15 @@ export class LeaveRequestService {
 
   constructor() {}
 
+  updateLeaveRequestStatus(id: number, updatedRequest: any): Promise<any> {
+    return axios.put(`${this.apiUrl}/${id}`, updatedRequest)
+      .then(response => response.data)
+      .catch(error => {
+        console.error('Error updating leave request status:', error);
+        throw error;
+      });
+  }
+
   createLeaveRequest(leaveRequest: any) {
     return axios.post(this.apiUrl, leaveRequest)
       .then(response => {
@@ -23,15 +32,12 @@ export class LeaveRequestService {
       });
   }
 
-  getLeaveRequests() {
+  getLeaveRequests(): Promise<any> {
     return axios.get(this.apiUrl)
-      .then(response => {
-        console.log('Leave requests fetched:', response);
-        return response.data;
-      })
+      .then(response => response.data)
       .catch(error => {
-        console.error('Error occurred:', error);
-        throw new Error('Failed to fetch leave requests');
+        console.error('Error fetching leave requests:', error);
+        throw error;
       });
   }
 }
